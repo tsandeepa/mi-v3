@@ -6,17 +6,22 @@ import bannerBg from '../../assets/images/BG.png'
 import bs1 from '../../assets/images/b-s1.png'
 import logo from '../../assets/images/logo.png'
 import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 
-const Login = () => {
+const Login = ({ setLogged }) => {
     const navigate = useNavigate();
+
+    useEffect(() => {
+        setLogged(false)
+    }, []);
 
     const [form] = Form.useForm();
     const nameValue = Form.useWatch('name', form);
-
     const handleLogin = () => {
-        navigate('/');
-    }
 
+        navigate('/emplyees');
+        setLogged(true)
+    }
     const carouselSlides = [
         {
             src: bs1,
@@ -29,13 +34,12 @@ const Login = () => {
             tagP: 'Your employees want to feel heard.  to engagement  feedback to retain top talent as your business grows.'
         },
     ]
-
     return (
         <LoginMain>
             <div className='lc-left'>
                 {/* <img className='bg-img' src={bannerBg} alt="" /> */}
                 <div className='c-holder'>
-                    <Carousel fade>
+                    <Carousel fade autoplay>
                         {
                             carouselSlides.map((slide) => (
                                 <div className='slide-item'>

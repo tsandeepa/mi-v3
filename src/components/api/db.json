@@ -1,0 +1,74 @@
+[
+    {
+        "department": "Accounts Assistant",
+        "emp_category": "Executive",
+        "emp_no": 1,
+        "location": "Dambulla",
+        "name": "Brooklyn Simmons",
+        "status": "Active",
+        "user_img": "https://randomuser.me/api/portraits/men/1.jpg"
+    },
+    {
+        "department": "Finance Manager",
+        "emp_category": "Head Of Operations",
+        "emp_no": 1002,
+        "location": "location",
+        "name": "Jane Cooper",
+        "status": "Inactive",
+        "user_img": "https://randomuser.me/api/portraits/men/2.jpg"
+    },
+    {
+        "department": "Accounts Assistant",
+        "emp_category": "Executive",
+        "emp_no": 1,
+        "location": "Dambulla",
+        "name": "Kathryn Murphy",
+        "status": "Resigned",
+        "user_img": "https://randomuser.me/api/portraits/men/3.jpg"
+    },
+    {
+        "department": "Finance Manager",
+        "emp_category": "Head Of Operations",
+        "emp_no": 1002,
+        "location": "location",
+        "name": "Ralph Edwards",
+        "status": "Other",
+        "user_img": "https://randomuser.me/api/portraits/men/4.jpg"
+    },
+    {
+        "department": "Accounts Assistant",
+        "emp_category": "Executive",
+        "emp_no": 1,
+        "location": "Dambulla",
+        "name": "Darlene Robertson",
+        "status": "Other",
+        "user_img": "https://randomuser.me/api/portraits/men/5.jpg"
+    },
+    {
+        "department": "Finance Manager",
+        "emp_category": "Head Of Operations",
+        "emp_no": 1002,
+        "location": "location",
+        "name": "Dianne Russell",
+        "status": "Inactive",
+        "user_img": "https://randomuser.me/api/portraits/men/6.jpg"
+    },
+    {
+        "department": "Finance Manager",
+        "emp_category": "Head Of Operations",
+        "emp_no": 1002,
+        "location": "location",
+        "name": "Arlene McCoy",
+        "status": "Inactive",
+        "user_img": "https://randomuser.me/api/portraits/men/7.jpg"
+    },
+    {
+        "department": "Finance Manager",
+        "emp_category": "Head Of Operations",
+        "emp_no": 1002,
+        "location": "location",
+        "name": "Dianne Russell",
+        "status": "Inactive",
+        "user_img": "https://randomuser.me/api/portraits/men/8.jpg"
+    }
+]
