@@ -5,14 +5,17 @@ import Header from './components/layout/header';
 import { Route, Routes } from 'react-router-dom';
 import Dashboard from './pages/dashboard/dashboard';
 import GlobalStyles from './styles/Global.styled';
+import GlobalTheme from './styles/Theme-elements/Theme.styled';
+
 
 function App() {
   return (
     <div className="App">
-      <GlobalStyles/>
+      <GlobalStyles />
+      <GlobalTheme />
       <Routes>
-        <Route path="/login" element={<Login/>} />
-        <Route path="/" element={<Dashboard/>}/>
+        <Route path="/login" element={<Login />} />
+        <Route path="/" element={<Dashboard />} />
       </Routes>
     </div>
   );
