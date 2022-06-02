@@ -30,6 +30,6 @@ const GlobalTheme = createGlobalStyle`
         }
     }
 
-    
+
 `
 export default GlobalTheme

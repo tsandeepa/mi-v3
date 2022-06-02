@@ -54,6 +54,40 @@ export const LoginMain = styled.div`
             }
             
         }
+        .account-login{
+            display: flex;
+            gap: 20px;
+            .acc-l-btn{
+                display: flex;
+                flex: 1;
+                align-items: center;
+                gap: 8px;
+                svg{
+                    font-size: 24px;
+                }
+            }
+        }
+        .divider-or{
+            text-align: center;
+            position: relative;
+            margin-top: 12px;
+            &::after{
+                content: "";
+                width: 100%;
+                border-bottom: 1px solid;
+                border-color: ${({ theme }) => theme.borderColor};
+                position: absolute;
+                left: 0;
+                top: 10px;
+            }
+            span{
+                background: #fff;
+                position: relative;
+                z-index: 1;
+                padding: 0 10px;
+                color: #869EB4;
+            }
+        }
         .sign-box{
             width: 500px;
             margin: 0 auto;

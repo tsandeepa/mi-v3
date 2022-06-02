@@ -8,6 +8,8 @@ import logo from '../../assets/images/logo.png'
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import { GoGlobe } from "react-icons/go";
+import { FcGoogle } from "react-icons/fc";
+import { CgMicrosoft } from "react-icons/cg";
 
 
 const Login = ({ setLogged }) => {
@@ -64,6 +66,13 @@ const Login = ({ setLogged }) => {
                         <img src={logo} alt="" />
                         <h1>Sign in to Minthrm</h1>
                         <p>Welcome back! Please Sign in to your account</p>
+                    </div>
+                    <div className='account-login'>
+                        <Button className='acc-l-btn'> <FcGoogle /> Sign in with Google</Button>
+                        <Button className='acc-l-btn'> <CgMicrosoft /> Sign in with Microsoft</Button>
+                    </div>
+                    <div class='divider-or'>
+                        <span>OR</span>
                     </div>
                     <Form form={form} layout="vertical" autoComplete="off">
                         <Form.Item name="name" label="Username">
