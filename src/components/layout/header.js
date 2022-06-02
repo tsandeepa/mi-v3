@@ -6,13 +6,11 @@ import { Switch } from "antd";
 import { BsSun, BsMoon } from "react-icons/bs";
 import { VscBell } from "react-icons/vsc";
 import { useNavigate } from "react-router-dom";
+import { GoGlobe } from "react-icons/go";
 
 const Header = ({ handleTheme, setLogged }) => {
 
     const navigate = useNavigate();
-
-
-
 
     const handleLogout = () => {
         navigate('/login');
@@ -33,7 +31,7 @@ const Header = ({ handleTheme, setLogged }) => {
             </div>
             <div className="h-right">
                 <div className="lang-select">
-                    <img src={labgGlobe} alt="" />
+                    <GoGlobe />
                     <span>En</span>
                 </div>
                 <div className="theme-toggle">

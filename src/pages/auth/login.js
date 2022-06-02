@@ -7,6 +7,8 @@ import bs1 from '../../assets/images/b-s1.png'
 import logo from '../../assets/images/logo.png'
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
+import { GoGlobe } from "react-icons/go";
+
 
 const Login = ({ setLogged }) => {
     const navigate = useNavigate();
@@ -55,7 +57,7 @@ const Login = ({ setLogged }) => {
             </div>
             <div className='lc-right'>
                 <div className='lang-opt'>
-                    <span>English</span>
+                    <span> <GoGlobe /> English</span>
                 </div>
                 <div className='sign-box'>
                     <div className='log-titles'>
@@ -71,12 +73,19 @@ const Login = ({ setLogged }) => {
                         <Form.Item name="password" label="Password">
                             <Input />
                         </Form.Item>
+                        <div className='sign-forgot'>
+                            <a>Forgot password ?</a>
+                            <span>Forgot Password</span>
+                        </div>
                         <Button type="primary" htmlType="submit" block
                             onClick={() => handleLogin()}
                         >
                             Submit
                         </Button>
                     </Form>
+                    <div className='sign-diffent-acc'>
+                        <span>Sign in with a <a>Defferent account</a></span>
+                    </div>
                 </div>
                 <div className='copy-right'>
                     <span>© 2022  Powered by Minthrm</span>

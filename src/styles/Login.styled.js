@@ -24,11 +24,13 @@ export const LoginMain = styled.div`
                     font-size: 26px;
                     max-width: 370px;
                     margin-top: 20px;
+                    text-align: center;
                 }
                 p{
                     color: #869EB4;
                     max-width: 500px;
                     margin-top: 10px;
+                    text-align: center;
                 }
             }
         }
@@ -38,10 +40,25 @@ export const LoginMain = styled.div`
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        padding: 30px;
+        .lang-opt{
+            display: flex;
+            justify-content: end;
+            span{
+                display: flex;
+                align-items: center;
+                gap: 5px;
+                svg{
+                    font-size: 20px;
+                }
+            }
+            
+        }
         .sign-box{
             width: 500px;
             margin: 0 auto;
             .log-titles{
+                text-align: center;
                 img{
                     margin-bottom: 15px;
                 }
@@ -55,10 +72,23 @@ export const LoginMain = styled.div`
                     font-size: 15px;
                 }
             }
+            .ant-form-item{
+                margin-bottom: 14px;
+            }
             .sign-forgot{
                 display: flex;
                 justify-content: space-between;
+                margin-bottom: 25px;
             }
+            .sign-diffent-acc{
+                margin-top: 15px;
+                text-align: center;
+            }
+
+            
         }
+        .copy-right{
+                    color: #869EB4;
+            }
     }
 `

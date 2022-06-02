@@ -12,6 +12,7 @@ export const TitleTop = styled.div`
             font-size: 21px;
             font-weight: 700;
             margin-bottom: 0;
+            color: ${({ theme }) => theme.textColorPrimary};
         }
     }
 `

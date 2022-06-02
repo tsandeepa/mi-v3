@@ -16,7 +16,7 @@ export const HeaderMain = styled.div`
             margin-bottom: 0;
             gap: 20px;
             li{
-                color: #073353;
+                color: ${({ theme }) => theme.textColorPrimary};
             }
         }
     }
@@ -29,8 +29,9 @@ export const HeaderMain = styled.div`
             display: flex;
             gap: 5px;
             align-items: center;
-            img{
-                height: 20px;
+            
+            svg{
+                font-size: 20px;
             }
         }
         .notific{
