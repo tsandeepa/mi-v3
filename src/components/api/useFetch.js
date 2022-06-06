@@ -2,12 +2,13 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 
-const useFetch = () => {
+const useFetch = (sch_term) => {
 
     const [isLoading, setisLoading] = useState(false);
     // const [data, setData] = useState();
     // const [data, setData] = useState();
     const [employees, setEmployees] = useState();
+    const [filteredEmps, setFilteredEmps] = useState();
     const [admin, setAdmin] = useState();
 
 
@@ -36,13 +37,21 @@ const useFetch = () => {
                 setisLoading(false)
             });
     }
+
+    const getFilteredData = (sch_term) => {
+        axios.get(employeesURL).then(response => {
+            console.log(response.data)
+            setEmployees(response.data)
+            setisLoading(false)
+        });
+    }
     // const showEmp = () => {
     //     data && console.log(data);
     //     data.map((emp) => (
     //         console.log(emp.name)
     //     ))
     // }
-    return { employees, admin, getData, isLoading }
+    return { employees, setEmployees, admin, getData, isLoading }
 }
 
 export default useFetch;

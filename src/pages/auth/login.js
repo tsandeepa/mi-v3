@@ -4,9 +4,11 @@ import { LoginMain } from '../../styles/Login.styled';
 
 import bannerBg from '../../assets/images/BG.png'
 import bs1 from '../../assets/images/b-s1.png'
+import bs2 from '../../assets/images/b-s2.png'
+import bs3 from '../../assets/images/b-s3.png'
 import logo from '../../assets/images/logo.png'
 import { useNavigate } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { GoGlobe } from "react-icons/go";
 import { FcGoogle } from "react-icons/fc";
 import { CgMicrosoft } from "react-icons/cg";
@@ -26,6 +28,9 @@ const Login = ({ setLogged }) => {
         navigate('/emplyees');
         setLogged(true)
     }
+
+
+
     const carouselSlides = [
         {
             src: bs1,
@@ -33,14 +38,19 @@ const Login = ({ setLogged }) => {
             tagP: 'Your employees want to feel heard. Listen, reflect, and respond to engagement feedback to retain top talent as your business grows.'
         },
         {
-            src: bs1,
+            src: bs2,
             tagH2: 'Connected  for  data-driven HR decisions',
             tagP: 'Your employees want to feel heard.  to engagement  feedback to retain top talent as your business grows.'
         },
+        {
+            src: bs3,
+            tagH2: 'Connected  for  data-driven HR decisions',
+            tagP: 'Your employees want to feel heard.  to engagement  feedback to retain top talent as your business grows.'
+        }
     ]
     return (
         <LoginMain>
-            <div className='lc-left'>
+            <div className={`lc-left `}>
                 {/* <img className='bg-img' src={bannerBg} alt="" /> */}
                 <div className='c-holder'>
                     <Carousel fade autoplay>

@@ -6,18 +6,20 @@ import { DownOutlined, SearchOutlined } from '@ant-design/icons';
 import { SearchTop } from "../../styles/Layout-styles/SearchBarTop.styled";
 import { ThemeTable } from "../../styles/Theme-elements/Table.styled";
 import useFetch from "../../components/api/useFetch";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const Employees = ({ setLogged }) => {
 
 
-    const { employees, getData, isLoading } = useFetch()
+    const { employees, setEmployees, getData, isLoading } = useFetch()
 
     useEffect(() => {
         getData()
         // console.log(employees);
         setLogged(true)
+        setOutput(employees);
     }, []);
 
     const menu = (
@@ -71,6 +73,28 @@ const Employees = ({ setLogged }) => {
 
     const { Option } = Select;
 
+    const [output, setOutput] = useState(employees);
+
+    const [searchTearm, setsearchTearm] = useState('');
+
+    const searchEmp = (e) => {
+
+        setOutput([])
+        employees.filter((emp => {
+            if (emp.name.toLowerCase().includes(e.target.value.toLowerCase())) {
+                setOutput(output => [...output, emp])
+            }
+        }))
+
+        // console.log(e.target.value);
+        // const filtered = employees.filter((emp) => {
+        //     let name = emp.name.toLowerCase()
+        //     return name.includes(e.target.value)
+        // })
+        // console.log(filtered);
+        // setEmployees(employees=>[...employees,])
+    }
+
     return (
         <div>
             {/* <Header /> */}
@@ -84,7 +108,9 @@ const Employees = ({ setLogged }) => {
                     </div>
                     <div className="th-r">
                         <div className="flex-gap-15">
-                            <Button type="primary">Add New Employee</Button>
+                            <Link to="/emplyees/add">
+                                <Button type="primary">Add New Employee</Button>
+                            </Link>
                             <Dropdown overlay={menu} placement="bottomRight" arrow>
                                 <Button> Upload <DownOutlined /></Button>
                             </Dropdown>
@@ -92,7 +118,7 @@ const Employees = ({ setLogged }) => {
                     </div>
                 </TitleTop>
                 <SearchTop>
-                    <Input className="search-wide" placeholder="Search" prefix={<SearchOutlined />} />
+                    <Input className="search-wide" placeholder="Search" onChange={(e) => { setsearchTearm(e.target.value) }} prefix={<SearchOutlined />} />
                     <DatePicker onChange={onChange} />
                     <Input className="input-w-sm" placeholder="Emp No." />
                     <Select defaultValue="Category" allowClear>
@@ -157,8 +183,8 @@ const Employees = ({ setLogged }) => {
                         }
                         {
                             employees &&
-                            employees.map((emp, i) => (
-                                <motion.div className="table-row"
+                            employees.filter((user) => user.name.toLowerCase().includes(searchTearm)).map((emp, i) => (
+                                <motion.div className="table-row" key={i}
                                     custom={i}
                                     initial="hidden"
                                     animate="visible"

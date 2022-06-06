@@ -10,6 +10,7 @@ import Employees from './pages/employess/employees';
 import { ThemeProvider } from 'styled-components'
 import { lightTheme, darkTheme } from './styles/Theme-elements/DarkLight.styled';
 import { useState } from 'react';
+import AddEmployee from './pages/employess/addEmployee';
 
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
           <Route path="/login" element={<Login setLogged={setLogged} />} />
           <Route path="/" element={<Dashboard setLogged={setLogged} />} />
           <Route path="/emplyees" element={<Employees setLogged={setLogged} />} />
+          <Route path="/emplyees/add" element={<AddEmployee setLogged={setLogged} />} />
         </Routes>
       </ThemeProvider>
     </div>
