@@ -9,6 +9,7 @@ import useFetch from "../../components/api/useFetch";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { BreadcrumbTh } from "../../styles/Theme-elements/Breadcrumb.styled";
 
 const Employees = ({ setLogged }) => {
 
@@ -101,10 +102,10 @@ const Employees = ({ setLogged }) => {
             <Container>
                 <TitleTop>
                     <div className="th-l">
-                        <div className="bredCrumb">
-                            <span>Employee Information / Employee Details</span>
-                        </div>
-                        <h3>Employee Details</h3>
+                        <BreadcrumbTh>
+                            <span> <Link to='/emplyees'>Employee Information</Link> / Employee Details</span>
+                        </BreadcrumbTh>
+                        <h3>Employees </h3>
                     </div>
                     <div className="th-r">
                         <div className="flex-gap-15">

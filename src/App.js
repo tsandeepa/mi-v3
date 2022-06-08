@@ -32,7 +32,8 @@ function App() {
           <Route path="/login" element={<Login setLogged={setLogged} />} />
           <Route path="/" element={<Dashboard setLogged={setLogged} />} />
           <Route path="/emplyees" element={<Employees setLogged={setLogged} />} />
-          <Route path="/emplyees/add" element={<AddEmployee setLogged={setLogged} />} />
+          <Route path="/emplyees/add" element={<AddEmployee setLogged={setLogged} />} >
+          </Route>
         </Routes>
       </ThemeProvider>
     </div>

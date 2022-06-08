@@ -15,7 +15,6 @@ export const SearchTop = styled.div`
         min-width: 200px;
         border-radius: 5px !important;
         height: 100% !important;
-        padding-top: 6px !important;
     }
     .ant-input-affix-wrapper{
         border-radius: 5px;

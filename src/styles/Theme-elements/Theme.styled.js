@@ -4,12 +4,20 @@ const GlobalTheme = createGlobalStyle`
     .ant-btn{
         height: inherit;
         padding: 10px 20px;
-        border-radius: 5px;
+        border-radius: 4px;
     }
     .ant-input{
         padding: 10px;
-        border-radius: 5px;
+        border-radius: 4px;
     }
+    .ant-select-selector{
+        height: 44px !important;
+        border-radius: 4px !important;
+        .ant-select-selection-item{
+            line-height: 41px !important;
+        }
+    }
+
     .fixed-pagination{
         position: fixed;
         bottom: 0;
