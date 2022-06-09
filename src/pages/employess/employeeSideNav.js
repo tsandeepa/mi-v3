@@ -7,6 +7,15 @@ import {
     AiOutlineUser,
 } from "react-icons/ai";
 
+import { IoBriefcaseOutline } from "react-icons/io5";
+import { GrDocumentUser } from "react-icons/gr";
+import { GrCertificate } from "react-icons/gr";
+import { RiContactsBookLine } from "react-icons/ri";
+import { HiOutlineLocationMarker, HiOutlineDeviceMobile } from "react-icons/hi";
+import { TbUsers } from "react-icons/tb";
+import { RiHeartPulseLine, RiLockPasswordLine } from "react-icons/ri";
+import { BiShapeCircle } from "react-icons/bi";
+
 const EmpSideNav = () => {
 
     function getItem(label, key, icon, children, type) {
@@ -18,50 +27,54 @@ const EmpSideNav = () => {
             type
         };
     }
-    const items = [
-        getItem("Basic Information", "sub1", <AiOutlineUser />, [
-            getItem("Employee Info", "1"),
-            getItem("Contact", "2"),
-            getItem("Lifecycle", "3"),
-            getItem("Employment", "4")
-        ]),
 
-        getItem("Office Information", "sub2", <SettingOutlined />, [
-            getItem("Employee Info", "5"),
-            getItem("Contact", "6"),
-            getItem("Lifecycle", "7"),
-            getItem("Employment", "8")
-        ]),
-
-        getItem("Privacy", "sub3", <SettingOutlined />, [
-            getItem("Employee Info", "9"),
-            getItem("Contact", "10"),
-            getItem("Lifecycle", "11"),
-            getItem("Employment", "12")
-        ]),
-        getItem("Other", "sub4", <SettingOutlined />, [
-            getItem("Employee Info", "13"),
-            getItem("Contact", "14"),
-            getItem("Lifecycle", "15"),
-            getItem("Employment", "16")
-        ]),
-
-
-
-    ];
 
     const onClick = (e) => {
         console.log("click ", e);
     };
 
     return (
-        <Menu
-            onClick={onClick}
-            defaultSelectedKeys={["1"]}
-            defaultOpenKeys={["sub1"]}
-            mode="inline"
-            items={items}
-        />
+        <div style={{ 'paddingRight': '40px' }}>
+            <Menu mode="vertical" defaultSelectedKeys={["m1"]}>
+                <Menu.Item key="m1" icon={<AiOutlineUser />}>
+                    Navigation One
+                </Menu.Item>
+                <Menu.Item key="m2" icon={<IoBriefcaseOutline />}>
+                    Employment
+                </Menu.Item>
+                <Menu.Item key="m3" icon={<GrDocumentUser />}>
+                    Personal Info
+                </Menu.Item>
+                <Menu.Item key="m4" icon={<GrCertificate />}>
+                    Attainment
+                </Menu.Item>
+                <Menu.Item key="m5" icon={<RiContactsBookLine />}>
+                    Contact
+                </Menu.Item>
+                <Menu.Item key="m6" icon={<HiOutlineLocationMarker />}>
+                    Location
+                </Menu.Item>
+                <Menu.Item key="m7" icon={<AiOutlineUser />}>
+                    Contact
+                </Menu.Item>
+                <Menu.Item key="m8" icon={<TbUsers />}>
+                    Family
+                </Menu.Item>
+                <Menu.Item key="m9" icon={<RiHeartPulseLine />}>
+                    Health
+                </Menu.Item>
+                <Menu.Item key="m10" icon={<RiLockPasswordLine />}>
+                    Password
+                </Menu.Item>
+                <Menu.Item key="m11" icon={<BiShapeCircle />}>
+                    Life Cycle
+                </Menu.Item>
+                <Menu.Item key="m12" icon={<HiOutlineDeviceMobile />}>
+                    Mobile App
+                </Menu.Item>
+            </Menu>
+        </div>
+
     );
 }
 

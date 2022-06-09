@@ -17,7 +17,9 @@ const GlobalTheme = createGlobalStyle`
             line-height: 41px !important;
         }
     }
-
+    .ant-menu-vertical{
+        border: none !important;
+    }
     .fixed-pagination{
         position: fixed;
         bottom: 0;

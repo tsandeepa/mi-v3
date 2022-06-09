@@ -14,6 +14,15 @@ export const SideTabbed = styled.div`
                 color: ${({ theme }) => theme.textColorPrimary};
             }
         }
+        .ant-menu-vertical{
+            .ant-menu-item{
+                display: flex !important;
+                align-items: center !important;
+                svg{
+                    font-size: 16px;
+                }
+            }
+        }
     }
     .right-vw{
         /* width: 70%; */

@@ -14,13 +14,16 @@ import { BreadcrumbTh } from "../../styles/Theme-elements/Breadcrumb.styled";
 const Employees = ({ setLogged }) => {
 
 
-    const { employees, setEmployees, getData, isLoading } = useFetch()
+    const { employees, setEmployees, employeeCount, getData, admin, isLoading } = useFetch()
 
     useEffect(() => {
+
         getData()
-        // console.log(employees);
+        console.log(employeeCount);
         setLogged(true)
         setOutput(employees);
+
+
     }, []);
 
     const menu = (
@@ -130,7 +133,7 @@ const Employees = ({ setLogged }) => {
                 <ThemeTable>
                     <div className="table-header">
                         <div style={{ 'flex': '2' }}>NAME</div>
-                        <div style={{ 'flex': '1' }}>EMP NO</div>
+                        <div style={{ 'flex': '1' }}>EMAIL</div>
                         <div style={{ 'flex': '1' }}>DEPARTMENT</div>
                         <div style={{ 'flex': '1' }}>EMP CATEGORY</div>
                         <div style={{ 'flex': '1' }}>LOCATION</div>
@@ -184,7 +187,7 @@ const Employees = ({ setLogged }) => {
                         }
                         {
                             employees &&
-                            employees.filter((user) => user.name.toLowerCase().includes(searchTearm)).map((emp, i) => (
+                            employees.filter((user) => user[1].name.toLowerCase().includes(searchTearm)).map((emp, i) => (
                                 <motion.div className="table-row" key={i}
                                     custom={i}
                                     initial="hidden"
@@ -192,14 +195,20 @@ const Employees = ({ setLogged }) => {
                                     variants={variants}
                                 >
                                     <div style={{ 'flex': '2' }}>
-                                        <img className="tbl-avtar-sm" src={emp.user_img} alt="" />
-                                        {emp.name}
+                                        {
+                                            emp[1]?.user_img ?
+                                                <img className="tbl-avtar-sm" src={emp[1]?.user_img} alt="" /> :
+                                                <div className="avatar-letter">
+                                                    {emp[1].name.slice(0, 1)}
+                                                </div>
+                                        }
+                                        {emp[1].name}
                                     </div>
-                                    <div style={{ 'flex': '1' }}>{emp.emp_no}</div>
-                                    <div style={{ 'flex': '1' }}>{emp.department}</div>
-                                    <div style={{ 'flex': '1' }}>{emp.emp_category}</div>
-                                    <div style={{ 'flex': '1' }}>{emp.location}</div>
-                                    <div style={{ 'flex': '1' }}>{emp.status}</div>
+                                    <div style={{ 'flex': '1' }}>{emp[1]?.email}</div>
+                                    <div style={{ 'flex': '1' }}>{emp[1]?.department}</div>
+                                    <div style={{ 'flex': '1' }}>{emp[1]?.emp_category}</div>
+                                    <div style={{ 'flex': '1' }}>{emp[1]?.location}</div>
+                                    <div style={{ 'flex': '1' }}>{emp[1]?.status}</div>
                                 </motion.div>
                             ))
                         }

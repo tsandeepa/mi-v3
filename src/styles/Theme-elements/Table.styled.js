@@ -13,6 +13,7 @@ export const ThemeTable = styled.div`
     }
     .table-body{
         padding-top: 10px;
+        
         .table-row{
             padding: 10px;
             display: flex;
@@ -28,6 +29,18 @@ export const ThemeTable = styled.div`
         height: 32px;
         border-radius: 50px;
         margin-right: 10px;
+    }
+    .avatar-letter{
+        font-weight: 500;
+        display: inline-flex;
+        background: #d9e8f6;
+        width: 32px;
+        height: 32px;
+        border-radius: 50px;
+        margin-right: 10px;
+        align-items: center;
+        justify-content: center;
+        text-transform: capitalize;
     }
     .loading-table-row{
         display: flex;
