@@ -196,8 +196,8 @@ const Employees = ({ setLogged }) => {
                                 >
                                     <div style={{ 'flex': '2' }}>
                                         {
-                                            emp[1]?.user_img ?
-                                                <img className="tbl-avtar-sm" src={emp[1]?.user_img} alt="" /> :
+                                            emp[1]?.userAvatar ?
+                                                <img className="tbl-avtar-sm" src={emp[1]?.userAvatar} alt="" /> :
                                                 <div className="avatar-letter">
                                                     {emp[1].name.slice(0, 1)}
                                                 </div>

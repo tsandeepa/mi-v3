@@ -5,6 +5,7 @@ const GlobalTheme = createGlobalStyle`
         height: inherit;
         padding: 10px 20px;
         border-radius: 4px;
+        
     }
     .ant-input{
         padding: 10px;

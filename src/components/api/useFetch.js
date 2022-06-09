@@ -12,6 +12,8 @@ const useFetch = (sch_term) => {
     const [filteredEmps, setFilteredEmps] = useState();
     const [admin, setAdmin] = useState();
 
+    const [dataAdding, setdataAdding] = useState(false);
+
 
     const employeesURL = 'https://mint-v3-default-rtdb.firebaseio.com/employees.json';
     const adminURL = 'https://mint-v3-default-rtdb.firebaseio.com/admin.json';
@@ -45,10 +47,12 @@ const useFetch = (sch_term) => {
     }
 
     const addEmployee = (values) => {
+        setdataAdding(true)
         console.log('addd', values);
         axios.post('https://mint-v3-default-rtdb.firebaseio.com/employees.json/', values)
             .then(function (response) {
                 console.log(response);
+                setdataAdding(false)
             })
             .catch(function (error) {
                 console.log(error);
@@ -71,7 +75,7 @@ const useFetch = (sch_term) => {
     //         console.log(emp.name)
     //     ))
     // }
-    return { employees, setEmployees, employeeCount, admin, getData, isLoading, addEmployee }
+    return { employees, setEmployees, dataAdding, employeeCount, admin, getData, isLoading, addEmployee }
 }
 
 export default useFetch;

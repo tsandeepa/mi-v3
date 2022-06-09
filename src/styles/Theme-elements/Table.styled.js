@@ -29,6 +29,7 @@ export const ThemeTable = styled.div`
         height: 32px;
         border-radius: 50px;
         margin-right: 10px;
+        object-fit: cover;
     }
     .avatar-letter{
         font-weight: 500;
