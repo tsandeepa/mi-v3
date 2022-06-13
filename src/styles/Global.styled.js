@@ -10,6 +10,7 @@ const GlobalStyles = createGlobalStyle`
       display: flex;
       gap: 15px;
    }
+   
 
 `
 

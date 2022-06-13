@@ -84,8 +84,16 @@ const Employees = ({ setLogged }) => {
 
     const [drawerVisible, setDrawerVisible] = useState(false);
 
-    const showDrawer = () => {
+    const [emp_info, setEmp_info] = useState(null);
+    const [eid, setEid] = useState();
+
+    const showDrawer = (i, id) => {
         setDrawerVisible(true);
+        console.log('clicked on' + i);
+        console.log(employees[i]);
+        console.log(id);
+        setEid(id)
+        setEmp_info(employees[i])
     };
 
     const onClose = () => {
@@ -198,8 +206,8 @@ const Employees = ({ setLogged }) => {
                         }
                         {
                             employees &&
-                            employees.filter((user) => user[1].name.toLowerCase().includes(searchTearm)).map((emp, i) => (
-                                <motion.div className="table-row" key={i} onClick={showDrawer}
+                            employees.filter((user, i) => user[1].name.toLowerCase().includes(searchTearm)).map((emp, i) => (
+                                <motion.div className="table-row" key={i} onClick={() => showDrawer(i, emp[0])}
                                     custom={i}
                                     initial="hidden"
                                     animate="visible"
@@ -225,7 +233,13 @@ const Employees = ({ setLogged }) => {
                         }
                     </div>
                 </ThemeTable>
-                <EmployeeSidePanel drawerVisible={drawerVisible} onClose={onClose} />
+                <EmployeeSidePanel
+                    drawerVisible={drawerVisible}
+                    setDrawerVisible={setDrawerVisible}
+                    onClose={onClose}
+                    employees={employees}
+                    eid={eid}
+                />
 
                 <Pagination className="fixed-pagination" size="small" defaultCurrent={1} total={50} />
             </Container>

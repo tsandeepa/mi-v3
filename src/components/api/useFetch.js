@@ -2,9 +2,10 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 
-const useFetch = (sch_term) => {
+const useFetch = (setDrawerVisible) => {
 
     const [isLoading, setisLoading] = useState(false);
+    const [isDeleting, setisDeleting] = useState(false);
     // const [data, setData] = useState();
     // const [data, setData] = useState();
     const [employees, setEmployees] = useState();
@@ -35,8 +36,6 @@ const useFetch = (sch_term) => {
         });
 
 
-
-
         fetch(adminURL)
             .then(response => response.json())
             .then(data => {
@@ -60,6 +59,17 @@ const useFetch = (sch_term) => {
 
     }
 
+    const deleteEmployee = (id) => {
+        setisDeleting(true)
+        console.log(id);
+        axios.delete('https://mint-v3-default-rtdb.firebaseio.com/employees/' + id + '.json')
+            .then(res => {
+                console.log('deleted')
+                setisDeleting(false)
+                setDrawerVisible(false)
+            }).catch(err => console.log(err))
+    }
+
 
 
     const getFilteredData = (sch_term) => {
@@ -75,7 +85,7 @@ const useFetch = (sch_term) => {
     //         console.log(emp.name)
     //     ))
     // }
-    return { employees, setEmployees, dataAdding, employeeCount, admin, getData, isLoading, addEmployee }
+    return { employees, setEmployees, dataAdding, employeeCount, admin, getData, isLoading, isDeleting, addEmployee, deleteEmployee }
 }
 
 export default useFetch;

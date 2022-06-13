@@ -43,6 +43,25 @@ const GlobalTheme = createGlobalStyle`
     ::-webkit-file-upload-button {
         cursor:pointer;
     }
+    .ant-drawer-header-title{
+        justify-content: end !important;
+    }
+    .ant-image-mask{
+        background: transparent !important;
+        .ant-image-mask-info{
+            font-size: 12px !important;
+        }
+    }
+    .ant-btn-circle{
+        width: 28px;
+        height: 28px;
+        min-width: 28px !important;
+        border-radius: 50px !important;
+        padding: 0 !important;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 
 `
 export default GlobalTheme
