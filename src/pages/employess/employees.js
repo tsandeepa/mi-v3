@@ -1,4 +1,4 @@
-import { Button, Carousel, DatePicker, Dropdown, Input, Menu, Pagination, Select } from "antd";
+import { Button, Carousel, DatePicker, Dropdown, Input, Menu, Pagination, Select, Drawer } from "antd";
 import Header from "../../components/layout/header";
 import { Container } from "../../styles/Layout-styles/PageContainer.styled";
 import { TitleTop } from "../../styles/Layout-styles/PageHeader.styled";
@@ -10,6 +10,7 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { BreadcrumbTh } from "../../styles/Theme-elements/Breadcrumb.styled";
+import EmployeeSidePanel from "./empSidePanel";
 
 const Employees = ({ setLogged }) => {
 
@@ -80,6 +81,16 @@ const Employees = ({ setLogged }) => {
     const [output, setOutput] = useState(employees);
 
     const [searchTearm, setsearchTearm] = useState('');
+
+    const [drawerVisible, setDrawerVisible] = useState(false);
+
+    const showDrawer = () => {
+        setDrawerVisible(true);
+    };
+
+    const onClose = () => {
+        setDrawerVisible(false);
+    };
 
     const searchEmp = (e) => {
 
@@ -188,7 +199,7 @@ const Employees = ({ setLogged }) => {
                         {
                             employees &&
                             employees.filter((user) => user[1].name.toLowerCase().includes(searchTearm)).map((emp, i) => (
-                                <motion.div className="table-row" key={i}
+                                <motion.div className="table-row" key={i} onClick={showDrawer}
                                     custom={i}
                                     initial="hidden"
                                     animate="visible"
@@ -214,6 +225,8 @@ const Employees = ({ setLogged }) => {
                         }
                     </div>
                 </ThemeTable>
+                <EmployeeSidePanel drawerVisible={drawerVisible} onClose={onClose} />
+
                 <Pagination className="fixed-pagination" size="small" defaultCurrent={1} total={50} />
             </Container>
         </div>

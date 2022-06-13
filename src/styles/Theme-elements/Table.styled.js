@@ -18,6 +18,7 @@ export const ThemeTable = styled.div`
             padding: 10px;
             display: flex;
             border-bottom: 1px solid;
+            cursor: pointer;
             border-color: ${({ theme }) => theme.borderColor};
             &:hover{
                 background: ${({ theme }) => theme.tableRowHover};

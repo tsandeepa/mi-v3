@@ -40,7 +40,9 @@ const GlobalTheme = createGlobalStyle`
             }
         }
     }
-
+    ::-webkit-file-upload-button {
+        cursor:pointer;
+    }
 
 `
 export default GlobalTheme
