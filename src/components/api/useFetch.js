@@ -1,8 +1,12 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { getStorage, ref, deleteObject } from "firebase/storage";
+
 
 
 const useFetch = (setDrawerVisible) => {
+
+    const storage = getStorage();
 
     const [isLoading, setisLoading] = useState(false);
     const [isDeleting, setisDeleting] = useState(false);
@@ -61,13 +65,33 @@ const useFetch = (setDrawerVisible) => {
 
     const deleteEmployee = (id) => {
         setisDeleting(true)
-        console.log(id);
-        axios.delete('https://mint-v3-default-rtdb.firebaseio.com/employees/' + id + '.json')
+        console.log(id[0]);
+        axios.delete('https://mint-v3-default-rtdb.firebaseio.com/employees/' + id[0] + '.json')
             .then(res => {
-                console.log('deleted')
-                setisDeleting(false)
+                console.log('deleted post info')
+                deleteUserImg(id[1].userAvatar[0])
+                getData()
                 setDrawerVisible(false)
             }).catch(err => console.log(err))
+
+    }
+
+    const deleteUserImg = (imgPath) => {
+        console.log(imgPath);
+
+        const desertRef = ref(storage, imgPath);
+
+        // Delete the file
+        deleteObject(desertRef).then(() => {
+            console.log('User img deleted');
+            setisDeleting(false)
+
+        }).catch((error) => {
+            // Uh-oh, an error occurred!
+            console.log('Error occurred deleting user image');
+
+        });
+
     }
 
 

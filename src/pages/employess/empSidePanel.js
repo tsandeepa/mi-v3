@@ -43,7 +43,7 @@ const EmployeeSidePanel = ({ drawerVisible, setDrawerVisible, onClose, employees
                     emp &&
                     <div className="side-p-top">
                         <div className="sp-tp-opt">
-                            <Button shape="circle" icon={<AiOutlineDelete />} onClick={() => deleteEmployee(emp[0][0])} />
+                            <Button shape="circle" icon={<AiOutlineDelete />} onClick={() => deleteEmployee(emp[0])} />
                         </div>
                         <div className="sp-img">
                             {
