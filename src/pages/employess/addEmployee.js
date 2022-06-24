@@ -20,7 +20,7 @@ const AddEmployee = ({ setLogged }) => {
     const { addEmployee, dataAdding, isLoading } = useFetch()
 
     const [userImgFile, setUseriImgFile] = useState(null);
-    const [usrImgUrl, setusrImgUrl] = useState();
+    const [usrImgUrl, setusrImgUrl] = useState(null);
     const [progress, setProgress] = useState(0);
     const [imgUploading, setimgUploading] = useState(false);
 

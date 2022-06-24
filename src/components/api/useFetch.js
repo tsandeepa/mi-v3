@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { getStorage, ref, deleteObject } from "firebase/storage";
+import { useNavigationType } from "react-router-dom";
 
 
 
 const useFetch = (setDrawerVisible) => {
 
     const storage = getStorage();
+    const navigation = useNavigationType();
 
     const [isLoading, setisLoading] = useState(false);
     const [isDeleting, setisDeleting] = useState(false);
@@ -28,8 +30,8 @@ const useFetch = (setDrawerVisible) => {
 
 
     const getData = () => {
+        setEmployees([])
         setisLoading(true)
-
         axios.get(employeesURL).then(response => {
             console.log(response.data)
             const empArr = Object.entries(response.data);
@@ -68,10 +70,14 @@ const useFetch = (setDrawerVisible) => {
         console.log(id[0]);
         axios.delete('https://mint-v3-default-rtdb.firebaseio.com/employees/' + id[0] + '.json')
             .then(res => {
-                console.log('deleted post info')
-                deleteUserImg(id[1].userAvatar[0])
-                getData()
-                setDrawerVisible(false)
+                if (typeof id[1].userAvatar === 'undefined') {
+                    setDrawerVisible(false)
+                    setisDeleting(false)
+                    console.log('deleted post info')
+                    // getData()
+                } else {
+                    deleteUserImg(id[1].userAvatar[0])
+                }
             }).catch(err => console.log(err))
 
     }
@@ -84,7 +90,9 @@ const useFetch = (setDrawerVisible) => {
         // Delete the file
         deleteObject(desertRef).then(() => {
             console.log('User img deleted');
+            setDrawerVisible(false)
             setisDeleting(false)
+            // getData()
 
         }).catch((error) => {
             // Uh-oh, an error occurred!

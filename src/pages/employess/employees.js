@@ -15,7 +15,7 @@ import EmployeeSidePanel from "./empSidePanel";
 const Employees = ({ setLogged }) => {
 
 
-    const { employees, setEmployees, employeeCount, getData, admin, isLoading } = useFetch()
+    const { employees, setEmployees, employeeCount, getData, admin, isLoading, deleteEmployee, isDeleting } = useFetch()
 
     useEffect(() => {
 
@@ -26,6 +26,12 @@ const Employees = ({ setLogged }) => {
 
 
     }, []);
+
+    useEffect(() => {
+        getData()
+    }, [isDeleting]);
+
+
 
     const menu = (
         <Menu
@@ -118,6 +124,10 @@ const Employees = ({ setLogged }) => {
         // setEmployees(employees=>[...employees,])
     }
 
+    const reloadList = () => {
+
+    }
+
     return (
         <div>
             {/* <Header /> */}
@@ -148,6 +158,7 @@ const Employees = ({ setLogged }) => {
                         <Option value="CategoryOne">Category one</Option>
                         <Option value="CategoryTwo">Category two</Option>
                     </Select>
+                    {/* <button onClick={() => reloadList()}>asa</button> */}
                 </SearchTop>
                 <ThemeTable>
                     <div className="table-header">
@@ -239,6 +250,7 @@ const Employees = ({ setLogged }) => {
                     onClose={onClose}
                     employees={employees}
                     eid={eid}
+                    deleteEmployee={deleteEmployee}
                 />
 
                 <Pagination className="fixed-pagination" size="small" defaultCurrent={1} total={50} />

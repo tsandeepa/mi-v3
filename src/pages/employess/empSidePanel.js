@@ -7,9 +7,9 @@ import { AiOutlineDelete } from "react-icons/ai";
 import useFetch from "../../components/api/useFetch";
 import { MdOutlineAutoDelete } from "react-icons/md";
 
-const EmployeeSidePanel = ({ drawerVisible, setDrawerVisible, onClose, employees, eid }) => {
+const EmployeeSidePanel = ({ drawerVisible, setDrawerVisible, onClose, employees, eid, deleteEmployee }) => {
 
-    const { deleteEmployee, isDeleting } = useFetch(setDrawerVisible)
+    const { isDeleting, isLoading } = useFetch(setDrawerVisible)
 
     const { TabPane } = Tabs;
 
